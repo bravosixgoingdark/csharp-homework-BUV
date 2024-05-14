@@ -21,11 +21,6 @@ namespace TaxiManagementAssignment
             Destination = string.Empty;
             Location = ON_ROAD;
             TotalMoneyPaid = 0;
-            //this.Rank = null;
-            //if (Rank == null)
-            //{
-                //throw new Exception();
-            //}
         }
     }
 }
