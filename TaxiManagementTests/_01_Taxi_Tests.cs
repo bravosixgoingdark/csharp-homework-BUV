@@ -14,51 +14,51 @@ namespace TaxiManagementTests
         [TestMethod]
         public void _01_NewTaxiNumberIsSet()
         {
-            Taxi t = new Taxi(1, 0);
+            Taxi t = new Taxi(1);
             Assert.AreEqual(1, t.Number);
         }
 
         [TestMethod]
         public void _02_NewTaxiCurrentFareIsZero()
         {
-            Taxi t = new Taxi(1, 0);
+            Taxi t = new Taxi(1);
             Assert.AreEqual(0, t.CurrentFare);
         }
 
-        //[TestMethod]
-        //public void _03_NewTaxiDestinationIsEmpty()
-        //{
-        //    Taxi t = new Taxi(1);
-        //    Assert.AreEqual(0, t.Destination.Length);
-        //}
+        [TestMethod]
+        public void _03_NewTaxiDestinationIsEmpty()
+        {
+           Taxi t = new Taxi(1);
+           Assert.AreEqual(0, t.Destination.Length);
+        }
 
-        //[TestMethod]
-        //public void _04_NewTaxiLocationIsOnRoad()
-        //{
-        //    Taxi t = new Taxi(1);
-        //    Assert.AreEqual("on the road", t.Location);
-        //}
+        [TestMethod]
+        public void _04_NewTaxiLocationIsOnRoad()
+        {
+            Taxi t = new Taxi(1);
+            Assert.AreEqual("on the road", t.Location);
+        }
 
-        //[TestMethod]
-        //public void _05_NewTaxiRankIsNull()
-        //{
-        //    Taxi t = new Taxi(1);
-        //    Assert.IsNull(t.Rank);
-        //}
+        [TestMethod]
+        public void _05_NewTaxiRankIsNull()
+        {
+            Taxi t = new Taxi(1);
+            Assert.IsNull(t.Rank);
+        }
 
-        //[TestMethod]
-        //public void _06_NewTaxiTotalMoneyPaidIsZero()
-        //{
-        //    Taxi t = new Taxi(1);
-        //    Assert.AreEqual(0, t.TotalMoneyPaid);
-        //}
+        [TestMethod]
+        public void _06_NewTaxiTotalMoneyPaidIsZero()
+        {
+            Taxi t = new Taxi(1);
+            Assert.AreEqual(0, t.TotalMoneyPaid);
+        }
 
-        //[TestMethod]
-        //public void _07_SetRankToNullThrowsException()
-        //{
-        //    Taxi t = new Taxi(1);
-        //    Assert.ThrowsException<Exception>(() => t.Rank = null);
-        //}
+        [TestMethod]
+        public void _07_SetRankToNullThrowsException()
+        {
+            Taxi t = new Taxi(1);
+            Assert.ThrowsException<Exception>(() => t.Rank = null);
+        }
 
         //[TestMethod]
         //public void _08_SetRankToNullGivesCorrectExceptionMessage()
