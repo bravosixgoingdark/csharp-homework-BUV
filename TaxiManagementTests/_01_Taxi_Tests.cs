@@ -14,14 +14,14 @@ namespace TaxiManagementTests
         [TestMethod]
         public void _01_NewTaxiNumberIsSet()
         {
-            Taxi t = new Taxi(1);
+            Taxi t = new Taxi(1, 0);
             Assert.AreEqual(1, t.Number);
         }
 
         [TestMethod]
         public void _02_NewTaxiCurrentFareIsZero()
         {
-            Taxi t = new Taxi(1);
+            Taxi t = new Taxi(1, 0);
             Assert.AreEqual(0, t.CurrentFare);
         }
 

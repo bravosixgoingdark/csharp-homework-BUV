@@ -7,9 +7,11 @@ namespace TaxiManagementAssignment
     public class Taxi
     {
         public int Number;
-        public Taxi(int num)
+        public float CurrentFare;
+        public Taxi(int num, float currentFare)
         {
             Number = num;
+            CurrentFare = currentFare;
         }
     }
 }
