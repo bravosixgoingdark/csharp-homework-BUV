@@ -53,5 +53,6 @@ namespace TaxiManagementAssignment
                 Destination = string.Empty;
             }
         }
+        
     }
 }
