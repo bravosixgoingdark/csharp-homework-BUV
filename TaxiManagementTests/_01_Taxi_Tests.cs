@@ -117,82 +117,82 @@ namespace TaxiManagementTests
             Assert.AreEqual(Taxi.IN_RANK, t.Location); // looking for static field in_rank???????????
         }
 
-        //[TestMethod]
-        //public void _13_AddFareChangesCurrentFare()
-        //{
-        //    Taxi t = new Taxi(1);
-        //    t.AddFare("", 1.23);
-        //    Assert.AreEqual(1.23, t.CurrentFare);
-        //}
+        [TestMethod]
+        public void _13_AddFareChangesCurrentFare()
+        {
+            Taxi t = new Taxi(1);
+            t.AddFare("", 1.23);
+            Assert.AreEqual(1.23, t.CurrentFare);
+        }
 
-        //[TestMethod]
-        //public void _14_AddFareChangesDestination()
-        //{
-        //    Taxi t = new Taxi(1);
-        //    t.AddFare("New destination", 0);
-        //    Assert.AreEqual("New destination", t.Destination);
-        //}
+        [TestMethod]
+        public void _14_AddFareChangesDestination()
+        {
+            Taxi t = new Taxi(1);
+            t.AddFare("New destination", 0);
+            Assert.AreEqual("New destination", t.Destination);
+        }
 
-        //[TestMethod]
-        //public void _15_AddFareChangesLocationToOnRoad()
-        //{
-        //    Taxi t = new Taxi(1);
-        //    t.AddFare("", 0);
-        //    Assert.AreEqual("on the road", t.Location);
-        //}
+        [TestMethod]
+        public void _15_AddFareChangesLocationToOnRoad()
+        {
+            Taxi t = new Taxi(1);
+            t.AddFare("", 0);
+            Assert.AreEqual("on the road", t.Location);
+        }
 
-        //[TestMethod]
-        //public void _16_AddFareChangesRankToNull()
-        //{
-        //    Taxi t = new Taxi(1);
-        //    Rank r = new Rank(1, 1);
-        //    t.Rank = r;
-        //    t.AddFare("", 0);
-        //    Assert.IsNull(t.Rank);
-        //}
-        //[TestMethod]
-        //public void _17_DropFareClearsDestination()
-        //{
-        //    Taxi t = new Taxi(1);
-        //    t.AddFare("New destination", 0);
-        //    t.DropFare(true);
-        //    Assert.AreEqual("", t.Destination);
-        //}
+        [TestMethod]
+        public void _16_AddFareChangesRankToNull()
+        {
+            Taxi t = new Taxi(1);
+            Rank r = new Rank(1, 1);
+            t.Rank = r;
+            t.AddFare("", 0);
+            Assert.IsNull(t.Rank);
+        }
+        [TestMethod]
+        public void _17_DropFareClearsDestination()
+        {
+            Taxi t = new Taxi(1);
+            t.AddFare("New destination", 0);
+            t.DropFare(true);
+            Assert.AreEqual("", t.Destination);
+        }
 
-        //[TestMethod]
-        //public void _18_DropFareResetsCurrentFareToZero()
-        //{
-        //    Taxi t = new Taxi(1);
-        //    t.AddFare("", 1.23);
-        //    t.DropFare(true);
-        //    Assert.AreEqual(0, t.CurrentFare);
-        //}
+        [TestMethod]
+        public void _18_DropFareResetsCurrentFareToZero()
+        {
+            Taxi t = new Taxi(1);
+            t.AddFare("", 1.23);
+            t.DropFare(true);
+            Assert.AreEqual(0, t.CurrentFare);
+        }
 
-        //[TestMethod]
-        //public void _19_DropFareDoesNotChangeLocation()
-        //{
-        //    Taxi t = new Taxi(1);
-        //    t.AddFare("Here and there", 1.23);
-        //    t.DropFare(true);
-        //    Assert.AreEqual(Taxi.ON_ROAD, t.Location);
-        //}
+        [TestMethod]
+        public void _19_DropFareDoesNotChangeLocation()
+        {
+            Taxi t = new Taxi(1);
+            t.AddFare("Here and there", 1.23);
+            t.DropFare(true);
+            Assert.AreEqual(Taxi.ON_ROAD, t.Location);
+        }
 
-        //[TestMethod]
-        //public void _20_DropFareChangesTotalMoneyTakenWhenPriceWasPaid()
-        //{
-        //    Taxi t = new Taxi(1);
-        //    t.AddFare("", 1.23);
-        //    t.DropFare(true);
-        //    Assert.AreEqual(1.23, t.TotalMoneyPaid);
-        //}
+        [TestMethod]
+        public void _20_DropFareChangesTotalMoneyTakenWhenPriceWasPaid()
+        {
+            Taxi t = new Taxi(1);
+            t.AddFare("", 1.23);
+            t.DropFare(true);
+            Assert.AreEqual(1.23, t.TotalMoneyPaid);
+        }
 
-        //[TestMethod]
-        //public void _21_DropFareDoesNotChangeTotalMoneyTakenWhenPriceWasNotPaid()
-        //{
-        //    Taxi t = new Taxi(1);
-        //    t.AddFare("", 1.23);
-        //    t.DropFare(false);
-        //    Assert.AreEqual(0, t.TotalMoneyPaid);
-        //}
+        [TestMethod]
+        public void _21_DropFareDoesNotChangeTotalMoneyTakenWhenPriceWasNotPaid()
+        {
+            Taxi t = new Taxi(1);
+            t.AddFare("", 1.23);
+            t.DropFare(false);
+            Assert.AreEqual(0, t.TotalMoneyPaid);
+        }
     }
 }
