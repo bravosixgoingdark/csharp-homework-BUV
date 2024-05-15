@@ -74,48 +74,48 @@ namespace TaxiManagementTests
             }
         }
 
-        //[TestMethod] //todo: complete Rank tommorrow
-        //public void _09_SetRankWhenDestinationIsNotEmptyThrowsException()
-        //{
-        //    Taxi t = new Taxi(1);
-        //    t.AddFare("Somewhere", 0);
-        //    Rank r = new Rank(1, 1);
-        //    Assert.ThrowsException<Exception>(() => t.Rank = r);
-        //}
+        [TestMethod] 
+        public void _09_SetRankWhenDestinationIsNotEmptyThrowsException()
+        {
+            Taxi t = new Taxi(1);
+            t.AddFare("Somewhere", 0);
+            Rank r = new Rank(1, 1);
+            Assert.ThrowsException<Exception>(() => t.Rank = r);
+        }
 
-        //[TestMethod]
-        //public void _10_SetRankWhenDestinationIsNotEmptyGivesCorrectExceptionMessage()
-        //{
-        //    Taxi t = new Taxi(1);
-        //    t.AddFare("Somewhere", 0);
-        //    Rank r = new Rank(1, 1);
-        //    try
-        //    {
-        //        t.Rank = r;
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Assert.AreEqual("Cannot join rank if fare has not been dropped", e.Message);
-        //    }
-        //}
+        [TestMethod]
+        public void _10_SetRankWhenDestinationIsNotEmptyGivesCorrectExceptionMessage()
+        {
+            Taxi t = new Taxi(1);
+            t.AddFare("Somewhere", 0);
+            Rank r = new Rank(1, 1);
+            try
+            {
+                t.Rank = r;
+            }
+            catch (Exception e)
+            {
+                Assert.AreEqual("Cannot join rank if fare has not been dropped", e.Message);
+            }
+        }
 
-        //[TestMethod]
-        //public void _11_SetRankChangesRankWhenDestinationIsEmpty()
-        //{
-        //    Taxi t = new Taxi(1);
-        //    Rank r = new Rank(1, 1);
-        //    t.Rank = r;
-        //    Assert.AreEqual(r, t.Rank);
-        //}
+        [TestMethod]
+        public void _11_SetRankChangesRankWhenDestinationIsEmpty()
+        {
+            Taxi t = new Taxi(1);
+            Rank r = new Rank(1, 1);
+            t.Rank = r;
+            Assert.AreEqual(r, t.Rank);
+        }
 
-        //[TestMethod]
-        //public void _12_SetRankChangesLocationToInRankWhenDestinationIsEmpty()
-        //{
-        //    Taxi t = new Taxi(1);
-        //    Rank r = new Rank(1, 1);
-        //    t.Rank = r;
-        //    Assert.AreEqual(Taxi.IN_RANK, t.Location);
-        //}
+        [TestMethod]
+        public void _12_SetRankChangesLocationToInRankWhenDestinationIsEmpty()
+        {
+            Taxi t = new Taxi(1);
+            Rank r = new Rank(1, 1);
+            t.Rank = r;
+            Assert.AreEqual(Taxi.IN_RANK, t.Location); // looking for static field in_rank???????????
+        }
 
         //[TestMethod]
         //public void _13_AddFareChangesCurrentFare()

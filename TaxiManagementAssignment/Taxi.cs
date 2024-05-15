@@ -11,28 +11,36 @@ namespace TaxiManagementAssignment
         public string Destination;
         public string Location;
         private Rank _rank;
+        public double agreedPrice; 
         public Rank Rank { 
-            get { return _rank; } //getters and setters here to make sure that no one can set a null rank
+            get { return _rank; } 
             set {
                 if (value == null)
                 {
-                    throw new Exception("Rank cannot be null");
+                    throw new Exception("Rank cannot be null"); // make sure that the rank cannot be null
                 }
-                _rank = value; 
+                if (!string.IsNullOrEmpty(Destination)) // make sure that the rank cannot be set for the thing
+                {
+                    throw new Exception("Cannot join rank if fare has not been dropped");
+                }
+                _rank = value;
+                Location = IN_RANK;
             }
         }
-        private string IN_RANK = "in rank";
-        private string ON_ROAD = "on the road";
+        public static string IN_RANK = "in rank"; 
+        public string ON_ROAD = "on the road";
         public double TotalMoneyPaid;
         public Taxi(int num)
         {
             Number = num;
             CurrentFare = 0;
             Destination = string.Empty;
-            Location = ON_ROAD;
             TotalMoneyPaid = 0;
-            //this.Rank = null;
-            //ArgumentNullException.ThrowIfNullOrEmpty(Rank);
+            Location = ON_ROAD;
+        }
+        public void AddFare(string destination, double agreedPrice)
+        {
+            this.Destination = destination;
         }
     }
 }
