@@ -72,11 +72,11 @@ namespace TaxiManagementTests
             Assert.IsTrue(r.AddTaxi(t));
         }
 
-        //[TestMethod]
-        //public void _08_FrontTaxiTakesFareReturnsNullWhenRankIsEmpty()
-        //{
-          //  Rank r = new Rank(1, 1);
-           // Assert.IsNull(r.FrontTaxiTakesFare("Nowhere", 1.23));
-        //}
+        [TestMethod]
+        public void _08_FrontTaxiTakesFareReturnsNullWhenRankIsEmpty()
+        {
+            Rank r = new Rank(1, 1);
+            Assert.IsNull(r.FrontTaxiTakesFare("Nowhere", 1.23));
+        }
     }
 }

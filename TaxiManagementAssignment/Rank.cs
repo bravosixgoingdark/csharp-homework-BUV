@@ -35,6 +35,10 @@ namespace TaxiManagementAssignment
         public Taxi FrontTaxiTakesFare(string Destination, double agreedPrice)
         {
             //taxiSpace[0].AddFare(Destination, agreedPrice); // addfaring the top one
+            if (taxiSpace.Count == 0)
+            {
+                return null;
+            }
             Taxi taxi = taxiSpace[0]; 
             taxi.AddFare(Destination, agreedPrice);
             taxiSpace.RemoveAt(0); // fix to remove the leaving taxi;
