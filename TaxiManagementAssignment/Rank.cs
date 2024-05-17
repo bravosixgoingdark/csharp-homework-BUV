@@ -8,11 +8,13 @@ namespace TaxiManagementAssignment
 {
     public class Rank 
     {
-        public int Id;
-        public int numberOfTaxiSpaces;
-        public int rankid;
+        private int id;
+        private int NumberOfTaxiSpaces;
         public Taxi taxi;
-        public List<Taxi> taxiSpace;
+        private List<Taxi> TaxiSpace;
+        public int Id { get { return id; } set { id = value; } }
+        public int numberOfTaxiSpaces { get { return NumberOfTaxiSpaces;} set { NumberOfTaxiSpaces = value; } }
+        public List<Taxi> taxiSpace {get { return TaxiSpace; } set { TaxiSpace = value; } }
         public Rank(int rankid, int numberOfTaxiSpaces)
         {
             this.Id = rankid;

@@ -6,12 +6,36 @@ namespace TaxiManagementAssignment
 {
     public class Taxi
     {
-        public int Number;
-        public double? CurrentFare;
-        public string Destination;
-        public string Location;
+        private int number;
+        private double? currentfare;
+        private string destination;
+        private string location;
         private Rank _rank;
-        public double agreedPrice; 
+        public int Number { 
+            get { return number; } 
+            set 
+            { 
+                number = value;
+            } 
+        }
+        public double? CurrentFare { get { return currentfare; }
+            set
+            {
+                currentfare = value;
+            } 
+        }
+        public string Destination { get { return destination; }
+            set
+            {
+                destination = value;
+            }
+        }
+        public string Location { get { return location; }
+            set
+            {
+                location = value;
+            } 
+        }
         public Rank Rank { 
             get { return _rank; } 
             set {

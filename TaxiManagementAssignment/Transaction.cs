@@ -8,8 +8,10 @@ namespace TaxiManagementAssignment
 {
     abstract public class Transaction
     {
-        public DateTime TransactionDatetime;
-        public string TransactionType;
+        private DateTime transactiondatetime;
+        private string transactiontype;
+        public DateTime TransactionDatetime { get { return transactiondatetime; } set { transactiondatetime = value; } }
+        public string TransactionType { get { return transactiontype; } set { transactiontype = value; } }
         public int taxiNum;
         public int rankID;
         public Transaction(string type, DateTime dt)
