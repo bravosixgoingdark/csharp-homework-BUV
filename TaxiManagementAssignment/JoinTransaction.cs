@@ -15,7 +15,7 @@ namespace TaxiManagementAssignment
         }
         public override string ToString()
         {
-            return TransactionDatetime + $" Join      - Taxi {taxiNum} in rank {rankID}";
+            return TransactionDatetime.ToString("dd/MM/yyyy HH:mm") + $" Join      - Taxi {taxiNum} in rank {rankID}";
         }
     }
 }

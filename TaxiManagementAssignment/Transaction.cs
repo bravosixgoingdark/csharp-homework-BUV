@@ -12,8 +12,10 @@ namespace TaxiManagementAssignment
         private string transactiontype;
         public DateTime TransactionDatetime { get { return transactiondatetime; } set { transactiondatetime = value; } }
         public string TransactionType { get { return transactiontype; } set { transactiontype = value; } }
-        public int taxiNum;
-        public int rankID;
+        private int taxinum;
+        private int rankid;
+        public int taxiNum { set { taxinum = value; } get { return taxinum; } }
+        public int rankID { set { rankid = value; } get { return rankid; } }
         public Transaction(string type, DateTime dt)
         {
             TransactionType = type;

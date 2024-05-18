@@ -70,42 +70,42 @@ namespace TaxiManagementTests
                 lt.ToString());
         }
 
-        //[TestMethod]
-        //public void _07_InDropTransaction_TransactionDateTimeIsCorrect()
-        //{
-        //    DateTime now = DateTime.Now;
-        //    Transaction t = new DropTransaction(now, 1, true);
-        //    Assert.AreEqual(now, t.TransactionDatetime);
-        //}
+        [TestMethod]
+        public void _07_InDropTransaction_TransactionDateTimeIsCorrect()
+        {
+            DateTime now = DateTime.Now;
+            Transaction t = new DropTransaction(now, 1, true);
+            Assert.AreEqual(now, t.TransactionDatetime);
+        }
 
-        //[TestMethod]
-        //public void _08_InDropTransaction_TransactionTypeIsCorrect()
-        //{
-        //    DateTime now = DateTime.Now;
-        //    Transaction t = new DropTransaction(now, 1, true);
-        //    Assert.AreEqual("Drop fare", t.TransactionType);
-        //}
+        [TestMethod]
+        public void _08_InDropTransaction_TransactionTypeIsCorrect()
+        {
+            DateTime now = DateTime.Now;
+            Transaction t = new DropTransaction(now, 1, true);
+            Assert.AreEqual("Drop fare", t.TransactionType);
+        }
 
-        //[TestMethod]
-        //public void _09_InDropTransaction_ToStringReturnsCorrectStringWhenPriceWasPaid()
-        //{
-        //    DateTime now = DateTime.Now;
-        //    string dateStr = now.ToString("dd/MM/yyyy HH:mm");
-        //    DropTransaction t = new DropTransaction(now, 1, true);
-        //    Assert.AreEqual(
-        //        dateStr + " Drop fare - Taxi 1, price was paid",
-        //        t.ToString());
-        //}
+        [TestMethod]
+        public void _09_InDropTransaction_ToStringReturnsCorrectStringWhenPriceWasPaid()
+        {
+            DateTime now = DateTime.Now;
+            string dateStr = now.ToString("dd/MM/yyyy HH:mm");
+            DropTransaction t = new DropTransaction(now, 1, true);
+            Assert.AreEqual(
+                dateStr + " Drop fare - Taxi 1, price was paid",
+                t.ToString());
+        }
 
-        //[TestMethod]
-        //public void _10_InDropTransaction_ToStringReturnsCorrectStringWhenPriceWasNotPaid()
-        //{
-        //    DateTime now = DateTime.Now;
-        //    string dateStr = now.ToString("dd/MM/yyyy HH:mm");
-        //    DropTransaction t = new DropTransaction(now, 1, false);
-        //    Assert.AreEqual(
-        //        dateStr + " Drop fare - Taxi 1, price was not paid",
-        //        t.ToString());
-        //}
+        [TestMethod]
+        public void _10_InDropTransaction_ToStringReturnsCorrectStringWhenPriceWasNotPaid()
+        {
+            DateTime now = DateTime.Now;
+            string dateStr = now.ToString("dd/MM/yyyy HH:mm");
+            DropTransaction t = new DropTransaction(now, 1, false);
+            Assert.AreEqual(
+                dateStr + " Drop fare - Taxi 1, price was not paid",
+                t.ToString());
+        }
     }
 }
