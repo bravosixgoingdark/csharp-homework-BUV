@@ -43,7 +43,7 @@ namespace TaxiManagementAssignment
                 {
                     throw new Exception("Rank cannot be null"); // make sure that the rank cannot be null
                 }
-                if (!string.IsNullOrEmpty(Destination)) // make sure that the rank cannot be set for the thing
+                if (Destination != null && Destination != "") // make sure that the rank cannot be set for the thing
                 {
                     throw new Exception("Cannot join rank if fare has not been dropped");
                 }

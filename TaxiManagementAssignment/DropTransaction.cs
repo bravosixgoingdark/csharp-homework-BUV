@@ -10,7 +10,7 @@ namespace TaxiManagementAssignment
     {
        private bool pricewaspaid;
        public bool pricewasPaid { set { pricewaspaid = value; } get { return pricewaspaid; } } 
-       public DropTransaction(DateTime dt, int taxiNum, bool pricewasPaid) : base("Drop Fare", dt)
+       public DropTransaction(DateTime dt, int taxiNum, bool pricewasPaid) : base("Drop fare", dt)
         {
             this.taxiNum = taxiNum;
             this.pricewasPaid = pricewasPaid; 

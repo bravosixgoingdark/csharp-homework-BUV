@@ -19,10 +19,14 @@ namespace TaxiManagementAssignment
         {
             this.Id = rankid;
             this.numberOfTaxiSpaces = numberOfTaxiSpaces;
-            this.taxiSpace = []; //init the taxispace list first 
+            this.taxiSpace = new List<Taxi>();//init the taxispace list first 
         }
         public bool AddTaxi(Taxi taxi)
-        {
+        { 
+            if (taxi.Rank != null || taxi.Destination != "")
+            {
+                return false;
+            }
             if (taxiSpace.Count < numberOfTaxiSpaces) // checks if is there any taxispaces left
             {
                 taxiSpace.Add(taxi); // add new taxi
