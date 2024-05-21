@@ -8,10 +8,9 @@ namespace TaxiManagementAssignment
 {
     public class LeaveTransaction : Transaction 
     {
-        public Taxi taxi { get; set; }
+        public Taxi taxi; 
         public LeaveTransaction(DateTime dt, int rankId, Taxi taxi) : base("Leave", dt)
         {
-            TransactionDatetime = dt;
             rankID = rankId;
             this.taxi = taxi;
         }
