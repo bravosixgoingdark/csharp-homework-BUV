@@ -11,297 +11,269 @@ namespace TaxiManagementTests
          * Uncomment from line 14
          */
 
-        //[TestMethod]
-        //public void _01_TaxiJoinsRank_TaxiAddedToRankWhenExistingTaxiJoinsExistingRank()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
-        //    Taxi t = txm.CreateTaxi(14);
+        [TestMethod]
+        public void _01_TaxiJoinsRank_TaxiAddedToRankWhenExistingTaxiJoinsExistingRank()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
+            Taxi t = txm.CreateTaxi(14);
 
-        //    ui.TaxiJoinsRank(14, 1);
-        //    Assert.AreEqual(14, rm.FindRank(1).FrontTaxiTakesFare("Nowhere", 1.23).Number);
-        //}
+            ui.TaxiJoinsRank(14, 1);
+            Assert.AreEqual(14, rm.FindRank(1).FrontTaxiTakesFare("Nowhere", 1.23).Number);
+        }
 
-        //[TestMethod]
-        //public void _02_TaxiJoinsRank_TaxiCreatedWhenTaxiNumberNotAlreadyInUse()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _02_TaxiJoinsRank_TaxiCreatedWhenTaxiNumberNotAlreadyInUse()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    ui.TaxiJoinsRank(12, 1);
-        //    Assert.IsNotNull(txm.FindTaxi(12));
-        //}
+            ui.TaxiJoinsRank(12, 1);
+            Assert.IsNotNull(txm.FindTaxi(12));
+        }
 
-        //[TestMethod]
-        //public void _03_TaxiJoinsRank_TaxiAddedToRankWhenNonexistantTaxiJoinsExistingRank()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _03_TaxiJoinsRank_TaxiAddedToRankWhenNonexistantTaxiJoinsExistingRank()
+        {
 
-        //    ui.TaxiJoinsRank(12, 1);
-        //    Assert.AreEqual(12, rm.FindRank(1).FrontTaxiTakesFare("Nowhere", 1.23).Number);
-        //}
+            
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //[TestMethod]
-        //public void _04_TaxiJoinsRankReturnsCorrectMessageWhenTaxiJoinsRank()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+            ui.TaxiJoinsRank(12, 1);
+            Assert.AreEqual(12, rm.FindRank(1).FrontTaxiTakesFare("Nowhere", 1.23).Number);
+        }
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Taxi 17 has joined rank 3.");
+        [TestMethod]
+        public void _04_TaxiJoinsRankReturnsCorrectMessageWhenTaxiJoinsRank()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.TaxiJoinsRank(17, 3));
-        //}
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Taxi 17 has joined rank 3.");
 
-        //[TestMethod]
-        //public void _05_TaxiJoinsRankReturnsCorrectMessageWhenTaxiDoesNotJoinRank()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
-        //    Taxi t = txm.CreateTaxi(19);
-        //    rm.AddTaxiToRank(t, 3);
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.TaxiJoinsRank(17, 3));
+        }
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Taxi 19 has not joined rank 1.");
+        [TestMethod]
+        public void _05_TaxiJoinsRankReturnsCorrectMessageWhenTaxiDoesNotJoinRank()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
+            Taxi t = txm.CreateTaxi(19);
+            rm.AddTaxiToRank(t, 3);
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.TaxiJoinsRank(19, 1));
-        //}
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Taxi 19 has not joined rank 1.");
 
-        //[TestMethod]
-        //public void _06_JoinTransactionCreatedWhenTaxiJoinsRank()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.TaxiJoinsRank(19, 1));
+        }
 
-        //    ui.TaxiJoinsRank(11, 1);
+        [TestMethod]
+        public void _06_JoinTransactionCreatedWhenTaxiJoinsRank()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    Assert.AreEqual("JoinTransaction", trm.GetAllTransactions()[0].GetType().Name);
-        //}
+            ui.TaxiJoinsRank(11, 1);
 
-        //[TestMethod]
-        //public void _07_JoinTransactionNotCreatedWhenTaxiDoesNotJoinRank()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+            Assert.AreEqual("JoinTransaction", trm.GetAllTransactions()[0].GetType().Name);
+        }
 
-        //    ui.TaxiJoinsRank(16, 1);
-        //    ui.TaxiJoinsRank(16, 2);
+        [TestMethod]
+        public void _07_JoinTransactionNotCreatedWhenTaxiDoesNotJoinRank()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    Assert.AreEqual(1, trm.GetAllTransactions().Count);
-        //}
+            ui.TaxiJoinsRank(16, 1);
+            ui.TaxiJoinsRank(16, 2);
 
-        //[TestMethod]
-        //public void _08_TaxiLeavesRankCreatesLeaveTransactionWhenTaxiLeavesRank()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+            Assert.AreEqual(1, trm.GetAllTransactions().Count);
+        }
 
-        //    ui.TaxiJoinsRank(11, 1);
-        //    ui.TaxiLeavesRank(1, "Somewhere", 1.23);
+        [TestMethod]
+        public void _08_TaxiLeavesRankCreatesLeaveTransactionWhenTaxiLeavesRank()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    Assert.AreEqual("LeaveTransaction", trm.GetAllTransactions()[1].GetType().Name);
-        //}
+            ui.TaxiJoinsRank(11, 1);
+            ui.TaxiLeavesRank(1, "Somewhere", 1.23);
 
-        //[TestMethod]
-        //public void _09_TaxiLeavesRankDoesNotCreateLeaveTransactionWhenTaxiDoesNotLeaveRank()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+            Assert.AreEqual("LeaveTransaction", trm.GetAllTransactions()[1].GetType().Name);
+        }
 
-        //    ui.TaxiJoinsRank(11, 1);
-        //    ui.TaxiLeavesRank(1, "Somewhere", 1.23);
-        //    ui.TaxiLeavesRank(1, "Somewhere else", 3.45);
+        [TestMethod]
+        public void _09_TaxiLeavesRankDoesNotCreateLeaveTransactionWhenTaxiDoesNotLeaveRank()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    Assert.AreEqual(2, trm.GetAllTransactions().Count);
-        //}
+            ui.TaxiJoinsRank(11, 1);
+            ui.TaxiLeavesRank(1, "Somewhere", 1.23);
+            ui.TaxiLeavesRank(1, "Somewhere else", 3.45);
 
-        //[TestMethod]
-        //public void _10_TaxiLeavesRankReturnsCorrectMessageWhenTaxiLeavesRank()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+            Assert.AreEqual(2, trm.GetAllTransactions().Count);
+        }
 
-        //    ui.TaxiJoinsRank(11, 1);
+        [TestMethod]
+        public void _10_TaxiLeavesRankReturnsCorrectMessageWhenTaxiLeavesRank()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Taxi 11 has left rank 1 to take a fare to Somewhere for £1.23.");
+            ui.TaxiJoinsRank(11, 1);
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.TaxiLeavesRank(1, "Somewhere", 1.23));
-        //}
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Taxi 11 has left rank 1 to take a fare to Somewhere for £1.23.");
 
-        //[TestMethod]
-        //public void _11_TaxiLeavesRankReturnsCorrectMessageWhenTaxiDoesNotLeaveRank()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.TaxiLeavesRank(1, "Somewhere", 1.23));
+        }
 
-        //    ui.TaxiJoinsRank(11, 1);
-        //    ui.TaxiLeavesRank(1, "Somewhere", 1.23);
+        [TestMethod]
+        public void _11_TaxiLeavesRankReturnsCorrectMessageWhenTaxiDoesNotLeaveRank()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Taxi has not left rank 1.");
+            ui.TaxiJoinsRank(11, 1);
+            ui.TaxiLeavesRank(1, "Somewhere", 1.23);
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.TaxiLeavesRank(1, "Somewhere", 1.23));
-        //}
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Taxi has not left rank 1.");
 
-        //[TestMethod]
-        //public void _12_TaxiDropsFareReturnsCorrectMessageWhenTaxiDoesNotDropFare()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.TaxiLeavesRank(1, "Somewhere", 1.23));
+        }
 
-        //    ui.TaxiJoinsRank(11, 1);
+        [TestMethod]
+        public void _12_TaxiDropsFareReturnsCorrectMessageWhenTaxiDoesNotDropFare()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Taxi 11 has not dropped its fare.");
+            ui.TaxiJoinsRank(11, 1);
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.TaxiDropsFare(11, false));
-        //}
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Taxi 11 has not dropped its fare.");
 
-        //[TestMethod]
-        //public void _13_TaxiDropsFareReturnsCorrectMessageWhenTaxiDropsFareAndPriceWasPaid()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.TaxiDropsFare(11, false));
+        }
 
-        //    ui.TaxiJoinsRank(11, 1);
-        //    ui.TaxiLeavesRank(1, "Somewhere", 1.23);
+        [TestMethod]
+        public void _13_TaxiDropsFareReturnsCorrectMessageWhenTaxiDropsFareAndPriceWasPaid()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Taxi 11 has dropped its fare and the price was paid.");
+            ui.TaxiJoinsRank(11, 1);
+            ui.TaxiLeavesRank(1, "Somewhere", 1.23);
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.TaxiDropsFare(11, true));
-        //}
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Taxi 11 has dropped its fare and the price was paid.");
 
-        //[TestMethod]
-        //public void _14_TaxiDropsFareReturnsCorrectMessageWhenTaxiDropsFareAndPriceWasNotPaid()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.TaxiDropsFare(11, true));
+        }
 
-        //    ui.TaxiJoinsRank(11, 1);
-        //    ui.TaxiLeavesRank(1, "Somewhere", 1.23);
+        [TestMethod]
+        public void _14_TaxiDropsFareReturnsCorrectMessageWhenTaxiDropsFareAndPriceWasNotPaid()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Taxi 11 has dropped its fare and the price was not paid.");
+            ui.TaxiJoinsRank(11, 1);
+            ui.TaxiLeavesRank(1, "Somewhere", 1.23);
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.TaxiDropsFare(11, false));
-        //}
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Taxi 11 has dropped its fare and the price was not paid.");
 
-        //[TestMethod]
-        //public void _15_TaxiDropsFareCreatesDropTransactionWhenTaxiDropsFare()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.TaxiDropsFare(11, false));
+        }
 
-        //    ui.TaxiJoinsRank(11, 1);
-        //    ui.TaxiLeavesRank(1, "Somewhere", 1.23);
-        //    ui.TaxiDropsFare(11, true);
+        [TestMethod]
+        public void _15_TaxiDropsFareCreatesDropTransactionWhenTaxiDropsFare()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    Assert.AreEqual("DropTransaction", trm.GetAllTransactions()[2].GetType().Name);
-        //}
+            ui.TaxiJoinsRank(11, 1);
+            ui.TaxiLeavesRank(1, "Somewhere", 1.23);
+            ui.TaxiDropsFare(11, true);
 
-        //[TestMethod]
-        //public void _16_TaxiDropsFareDoesNotCreateDropTransactionWhenTaxiDoesNotDropFare()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+            Assert.AreEqual("DropTransaction", trm.GetAllTransactions()[2].GetType().Name);
+        }
 
-        //    ui.TaxiJoinsRank(11, 1);
-        //    ui.TaxiDropsFare(11, true);
+        [TestMethod]
+        public void _16_TaxiDropsFareDoesNotCreateDropTransactionWhenTaxiDoesNotDropFare()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    Assert.AreEqual(1, trm.GetAllTransactions().Count);
-        //}
+            ui.TaxiJoinsRank(11, 1);
+            ui.TaxiDropsFare(11, true);
 
-        //[TestMethod]
-        //public void _17_ViewTaxiLocationsReturnsCorrectStringsWhenThereAreNoTaxis()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+            Assert.AreEqual(1, trm.GetAllTransactions().Count);
+        }
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Taxi locations");
-        //    expectedLines.Add("==============");
-        //    expectedLines.Add("No taxis");
+        [TestMethod]
+        public void _17_ViewTaxiLocationsReturnsCorrectStringsWhenThereAreNoTaxis()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    //foreach (string s in expectedLines)
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
-
-        //    //foreach (string s in ui.ViewTaxiLocations())
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
-
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.ViewTaxiLocations());
-        //}
-
-        //[TestMethod]
-        //public void _18_ViewTaxiLocationsReturnsCorrectStringsWhenThereIsOneTaxiInRank()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
-
-        //    ui.TaxiJoinsRank(12, 1);
-
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Taxi locations");
-        //    expectedLines.Add("==============");
-        //    expectedLines.Add("Taxi 12 is in rank 1");
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Taxi locations");
+            expectedLines.Add("==============");
+            expectedLines.Add("No taxis");
 
         //    //foreach (string s in expectedLines)
         //    //{
@@ -313,204 +285,234 @@ namespace TaxiManagementTests
         //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
         //    //}
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.ViewTaxiLocations());
-        //}
+            CollectionAssert.AreEqual(
+               expectedLines,
+                ui.ViewTaxiLocations());
+        }
 
-        //[TestMethod]
-        //public void _19_ViewTaxiLocationsReturnsCorrectStringsWhenThereIsOneTaxiOnRoadToDestination()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _18_ViewTaxiLocationsReturnsCorrectStringsWhenThereIsOneTaxiInRank()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    ui.TaxiJoinsRank(12, 1);
-        //    ui.TaxiLeavesRank(1, "Somewhere", 1.23);
+            ui.TaxiJoinsRank(12, 1);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Taxi locations");
-        //    expectedLines.Add("==============");
-        //    expectedLines.Add("Taxi 12 is on the road to Somewhere");
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Taxi locations");
+            expectedLines.Add("==============");
+            expectedLines.Add("Taxi 12 is in rank 1");
 
-        //    //foreach (string s in expectedLines)
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-        //    //foreach (string s in ui.ViewTaxiLocations())
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            //foreach (string s in ui.ViewTaxiLocations())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.ViewTaxiLocations());
-        //}
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.ViewTaxiLocations());
+        }
 
-        //[TestMethod]
-        //public void _20_ViewTaxiLocationsReturnsCorrectStringsWhenThereIsOneTaxiOnRoadAfterDroppingFare()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _19_ViewTaxiLocationsReturnsCorrectStringsWhenThereIsOneTaxiOnRoadToDestination()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    ui.TaxiJoinsRank(12, 1);
-        //    ui.TaxiLeavesRank(1, "Somewhere", 1.23);
-        //    ui.TaxiDropsFare(12, true);
+            ui.TaxiJoinsRank(12, 1);
+            ui.TaxiLeavesRank(1, "Somewhere", 1.23);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Taxi locations");
-        //    expectedLines.Add("==============");
-        //    expectedLines.Add("Taxi 12 is on the road");
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Taxi locations");
+            expectedLines.Add("==============");
+            expectedLines.Add("Taxi 12 is on the road to Somewhere");
 
-        //    //foreach (string s in expectedLines)
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-        //    //foreach (string s in ui.ViewTaxiLocations())
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            //foreach (string s in ui.ViewTaxiLocations())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.ViewTaxiLocations());
-        //}
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.ViewTaxiLocations());
+        }
 
-        //[TestMethod]
-        //public void _21_ViewTaxiLocationsReturnsCorrectStringsWhenThereAreThreeTaxis()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _20_ViewTaxiLocationsReturnsCorrectStringsWhenThereIsOneTaxiOnRoadAfterDroppingFare()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    ui.TaxiJoinsRank(12, 1);
-        //    ui.TaxiLeavesRank(1, "Somewhere", 1.23);
-        //    ui.TaxiJoinsRank(13, 1);
-        //    ui.TaxiJoinsRank(14, 2);
+            ui.TaxiJoinsRank(12, 1);
+            ui.TaxiLeavesRank(1, "Somewhere", 1.23);
+            ui.TaxiDropsFare(12, true);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Taxi locations");
-        //    expectedLines.Add("==============");
-        //    expectedLines.Add("Taxi 12 is on the road to Somewhere");
-        //    expectedLines.Add("Taxi 13 is in rank 1");
-        //    expectedLines.Add("Taxi 14 is in rank 2");
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Taxi locations");
+            expectedLines.Add("==============");
+            expectedLines.Add("Taxi 12 is on the road");
 
-        //    //foreach (string s in expectedLines)
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-        //    //foreach (string s in ui.ViewTaxiLocations())
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            //foreach (string s in ui.ViewTaxiLocations())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.ViewTaxiLocations());
-        //}
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.ViewTaxiLocations());
+        }
 
-        //[TestMethod]
-        //public void _22_ViewFinancialReportReturnsCorrectStringsWhenThereAreNoTaxis()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _21_ViewTaxiLocationsReturnsCorrectStringsWhenThereAreThreeTaxis()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Financial report");
-        //    expectedLines.Add("================");
-        //    expectedLines.Add("No taxis, so no money taken");
+            ui.TaxiJoinsRank(12, 1);
+            ui.TaxiLeavesRank(1, "Somewhere", 1.23);
+            ui.TaxiJoinsRank(13, 1);
+            ui.TaxiJoinsRank(14, 2);
 
-        //    //foreach (string s in expectedLines)
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Taxi locations");
+            expectedLines.Add("==============");
+            expectedLines.Add("Taxi 12 is on the road to Somewhere");
+            expectedLines.Add("Taxi 13 is in rank 1");
+            expectedLines.Add("Taxi 14 is in rank 2");
 
-        //    //foreach (string s in ui.ViewFinancialReport())
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.ViewFinancialReport());
-        //}
+            //foreach (string s in ui.ViewTaxiLocations())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-        //[TestMethod]
-        //public void _23_ViewFinancialReportReturnsCorrectStringsWhenOneTaxiHasTakenNoMoney()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.ViewTaxiLocations());
+        }
 
-        //    ui.TaxiJoinsRank(12, 1);
+        [TestMethod]
+        public void _22_ViewFinancialReportReturnsCorrectStringsWhenThereAreNoTaxis()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Financial report");
-        //    expectedLines.Add("================");
-        //    expectedLines.Add("Taxi 12      0.00");
-        //    expectedLines.Add("           ======");
-        //    expectedLines.Add("Total:       0.00");
-        //    expectedLines.Add("           ======");
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Financial report");
+            expectedLines.Add("================");
+            expectedLines.Add("No taxis, so no money taken");
 
-        //    //foreach (string s in expectedLines)
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-        //    //foreach (string s in ui.ViewFinancialReport())
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            //foreach (string s in ui.ViewFinancialReport())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.ViewFinancialReport());
-        //}
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.ViewFinancialReport());
+        }
 
-        //[TestMethod]
-        //public void _24_ViewFinancialReportReturnsCorrectStringsWhenOneTaxiHasTakenMoneyFromOneFare()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _23_ViewFinancialReportReturnsCorrectStringsWhenOneTaxiHasTakenNoMoney()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    ui.TaxiJoinsRank(12, 1);
-        //    ui.TaxiLeavesRank(1, "Somewhere", 1.23);
-        //    ui.TaxiDropsFare(12, true);
+            ui.TaxiJoinsRank(12, 1);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Financial report");
-        //    expectedLines.Add("================");
-        //    expectedLines.Add("Taxi 12      1.23");
-        //    expectedLines.Add("           ======");
-        //    expectedLines.Add("Total:       1.23");
-        //    expectedLines.Add("           ======");
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Financial report");
+            expectedLines.Add("================");
+            expectedLines.Add("Taxi 12      0.00");
+            expectedLines.Add("           ======");
+            expectedLines.Add("Total:       0.00");
+            expectedLines.Add("           ======");
 
-        //    //foreach (string s in expectedLines)
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-        //    //foreach (string s in ui.ViewFinancialReport())
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            //foreach (string s in ui.ViewFinancialReport())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.ViewFinancialReport());
-        //}
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.ViewFinancialReport());
+        }
+
+        [TestMethod]
+        public void _24_ViewFinancialReportReturnsCorrectStringsWhenOneTaxiHasTakenMoneyFromOneFare()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
+
+            ui.TaxiJoinsRank(12, 1);
+            ui.TaxiLeavesRank(1, "Somewhere", 1.23);
+            ui.TaxiDropsFare(12, true);
+
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Financial report");
+            expectedLines.Add("================");
+            expectedLines.Add("Taxi 12      1.23");
+            expectedLines.Add("           ======");
+            expectedLines.Add("Total:       1.23");
+            expectedLines.Add("           ======");
+
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
+
+            //foreach (string s in ui.ViewFinancialReport())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
+
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.ViewFinancialReport());
+        }
 
         //[TestMethod]
         //public void _25_ViewFinancialReportReturnsCorrectStringsWhenOneTaxiHasTakenMoneyFromTwoFares()
