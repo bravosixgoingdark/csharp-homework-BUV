@@ -13,7 +13,7 @@ namespace TaxiManagementAssignment
        public DropTransaction(DateTime dt, int taxiNum, bool pricewasPaid) : base("Drop fare", dt)
         {
             this.taxiNum = taxiNum;
-            this.pricewasPaid = pricewasPaid; 
+            this.pricewasPaid = pricewasPaid;
         }
         public override string ToString()
         {

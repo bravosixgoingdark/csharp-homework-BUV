@@ -97,6 +97,7 @@ namespace TaxiManagementAssignment
                 default:
                     _result.Insert(0, $"Taxi {taxiNum} has dropped its fare and the price was paid.");
                     transactionMgr.RecordDrop(taxiNum, pricePaid);
+                    taxi.DropFare(pricePaid);
                     return _result;
             }
         }
@@ -150,15 +151,36 @@ namespace TaxiManagementAssignment
                     foreach (var TaxiEntry in alltaxis)
                     {
                         Taxi taxi = TaxiEntry.Value;
-                        _result.Add($"Taxi {taxi.Number}      {taxi.TotalMoneyPaid.ToString("F")}");
+                        _result.Add($"Taxi {taxi.Number}      {taxi.TotalMoneyPaid.ToString("F2")}");
                          totalmoney = taxi.TotalMoneyPaid + totalmoney;
                     }
                     _result.Add("           ======");
-                    _result.Add($"Total:       {totalmoney.ToString("F")}");
+                    _result.Add($"Total:       {totalmoney.ToString("F2")}");
                     _result.Add("           ======");
                     return _result;
                 default:
                     _result.Add("No taxis, so no money taken");
+                    return _result;
+            }
+        }
+        public List<string> ViewTransactionLog()
+        {
+            var alltransactions = transactionMgr.GetAllTransactions();
+            _result.Clear();
+            _result.Add("Transaction report");
+            _result.Add("==================");
+            string caseSwitch = "";
+            if (alltransactions.Count != 0) caseSwitch = "transactionexists";
+            switch (caseSwitch)
+            {
+                case "transactionexists":
+                    foreach (var transaction in alltransactions)
+                    {
+                        _result.Add(transaction.ToString());
+                    }
+                    return _result;
+                default:
+                    _result.Add("No transactions");
                     return _result;
             }
         }

@@ -59,7 +59,7 @@ namespace TaxiManagementAssignment
             Number = num;
             CurrentFare = 0;
             Destination = string.Empty;
-            TotalMoneyPaid = 0.00;
+            TotalMoneyPaid = 0;
             Location = ON_ROAD; // by default, the location will be ON_ROAD, will subject to some change later
         }
         public void AddFare(string destination, double agreedPrice)
