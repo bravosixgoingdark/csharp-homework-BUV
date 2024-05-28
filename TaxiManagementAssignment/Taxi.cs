@@ -7,67 +7,85 @@ namespace TaxiManagementAssignment
     public class Taxi
     {
         private int number;
-        private double? currentfare;
+        private double? currentfare; // double that can be null 
         private string destination;
         private string location;
         private Rank _rank;
-        public int Number { 
-            get { return number; } 
-            set 
-            { 
+
+        public int Number
+        {
+            get { return number; }
+            set
+            {
                 number = value;
-            } 
+            }
         }
-        public double? CurrentFare { get { return currentfare; }
+
+        public double? CurrentFare
+        {
+            get { return currentfare; }
             set
             {
                 currentfare = value;
-            } 
+            }
         }
-        public string Destination { get { return destination; }
+
+        public string Destination
+        {
+            get { return destination; }
             set
             {
                 destination = value;
             }
         }
-        public string Location { get { return location; }
+
+        public string Location
+        {
+            get { return location; }
             set
             {
                 location = value;
-            } 
+            }
         }
-        public Rank Rank { 
-            get { return _rank; } 
-            set {
+
+        public Rank Rank
+        {
+            get { return _rank; }
+            set
+            {
                 if (value == null)
                 {
                     throw new Exception("Rank cannot be null"); // make sure that the rank cannot be null
                 }
-                if (Destination != null && Destination != "") // make sure that the rank cannot be set for the thing
+                if (Destination != null && Destination != "") // make sure that the rank cannot be set if the fare has not been dropped
                 {
                     throw new Exception("Cannot join rank if fare has not been dropped");
                 }
                 _rank = value;
-                Location = IN_RANK; // if set rank and then the location will be set as IN_RANK
+                Location = IN_RANK; // if rank is set, then the location will be set as IN_RANK
             }
         }
-        public static string IN_RANK = "in rank"; 
+
+        public static string IN_RANK = "in rank";
         public static string ON_ROAD = "on the road";
         public double TotalMoneyPaid;
+
         public Taxi(int num)
         {
             Number = num;
             CurrentFare = 0;
             Destination = string.Empty;
             TotalMoneyPaid = 0;
-            Location = ON_ROAD; // by default, the location will be ON_ROAD, will subject to some change later
+            Location = ON_ROAD; // by default, the location will be ON_ROAD, but subject to change later
         }
+
         public void AddFare(string destination, double agreedPrice)
         {
             this.Destination = destination;
             CurrentFare = agreedPrice;
-            this._rank = null; //overrides the private rank property
+            this._rank = null; // overrides the private rank property
         }
+
         public void DropFare(bool priceWasPaid)
         {
             if (priceWasPaid == true)
@@ -77,6 +95,5 @@ namespace TaxiManagementAssignment
                 Destination = string.Empty;
             }
         }
-       
     }
 }
